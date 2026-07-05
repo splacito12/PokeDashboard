@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Righteous', sans-serif;
+  background-color: #fdf7ea;
+  color: #1c1c1c;
+}
+
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: 'Righteous', sans-serif;
+  color: black;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card1 {
+  background-color: rgb(169, 79, 79);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card2 {
+  background-color: rgb(209, 206, 110);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card3 {
+  background-color: rgb(82, 100, 163);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card1 h3,
+.card2 h3,
+.card3 h3 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-family: 'Righteous', sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.card1 p,
+.card2 p,
+.card3 p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: 'Righteous', sans-serif;
+  text-transform: uppercase;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 0;
+  padding: 12px 0;
+  z-index: 10;
+}
+
+.filters input, 
+.filters select {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Righteous', sans-serif;
+  background-color: #fdf7ea;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: #333;
+}
+
+.filters input:focus,
+.filters select:focus {
+  box-shadow: 0 0 0 3px rgba(90, 121, 233, 0.4); /* matches your card3 blue */
+}
+
+.filters input::placeholder {
+  color: #999;
+}
+
+.controls input,
+.controls select {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Righteous', sans-serif;
+}
+
+.pokemon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main-list {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main-list:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.icons {
+  width: 50px;
+  height: 50px;
+}
+
+.pokemon-name {
+  flex: 1;
+  font-family: 'Righteous', sans-serif;
+  text-transform: capitalize;
+}
+
+.pokemon-types {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: capitalize;
+  background-color: #888
+}
+
+.badge-fire {
+  background-color: #f08030;
+}
+.badge-water {
+  background-color: #6890f0;
+}
+.badge-grass {
+  background-color: #78c850;
+}
+.badge-electric {
+  background-color: #f8d030;
+}
+.badge-psychic {
+  background-color: #f85888;
+}
+.badge-ice {
+  background-color: #98d8d8;
+}
+.badge-dragon {
+  background-color: #7038f8;
+}
+.badge-poison {
+  background-color: #a040a0;
+}
+.badge-flying {
+  background-color: #a890f0;
+}
+.badge-bug {
+  background-color: #a8b820;
+}
+.badge-rock {
+  background-color: #b8a038;
+}
+.badge-ground {
+  background-color: #e0c068;
+}
+.badge-fighting {
+  background-color: #c03028;
+}
+.badge-normal {
+  background-color: #a8a878;
+}
+.badge-ghost {
+  background-color: #705898;
+}
+.badge-steel {
+  background-color: #b8b8d0;
+}
+.badge-dark {
+  background-color: #705848;
+}
+.badge-fairy {
+  background-color: #ee99ac;
+}
+
+.row-fire { 
+  background-color: #fdece1; 
+}
+.row-water { 
+  background-color: #e6edfc; 
+}
+.row-grass { 
+  background-color: #eaf6e6; 
+}
+.row-electric { 
+  background-color: #fdf8e1; 
+}
+.row-psychic { 
+  background-color: #fce8f0; 
+}
+.row-ice { 
+  background-color: #eaf9f9; 
+}
+.row-dragon { 
+  background-color: #eee7fd; 
+}
+.row-poison { 
+  background-color: #f3e6f3; 
+}
+.row-flying { 
+  background-color: #f1eefc; 
+}
+.row-bug { 
+  background-color: #f4f6e4; 
+}
+.row-rock { 
+  background-color: #f4f1e5; 
+}
+.row-ground { 
+  background-color: #faf3e2; 
+}
+.row-fighting { 
+  background-color: #f9e6e4; 
+}
+.row-normal { 
+  background-color: #f5f5f0; 
+}
+.row-ghost { 
+  background-color: #ede7f2; 
+}
+.row-steel { 
+  background-color: #eef0f4; 
+}
+.row-dark { 
+  background-color: #ece7e4; 
+}
+.row-fairy { 
+  background-color: #fceef1; 
+}
+
+.pokemon-stats {
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.status-msg {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+}
