@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useMemo } from 'react'
 import Pokemons from './Pokemons'
 import './App.css'
 
@@ -47,16 +48,15 @@ function App() {
     setFilter(filterValue)
   }
 
-  const filteredList = () => {
-    if (!list) return []
+  const filteredPokemons = useMemo(() => {
+    if (!list){
+      return []
+    }
 
     return list
-    .filter(pokemon => 
-      pokemon.name.toLowerCase().includes(search.toLowerCase())
-    )
-    .filter(pokemon => filters === "ALL" ? true : pokemon.types.includes(filters)
-    )
-  }
+           .filter(pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase()))
+           .filter(pokemon => filters === "ALL" ? true : pokemon.types.includes(filters))
+  },[list, search, filters])
 
   const getUniqueTypes = () => {
     if (!list) return []
@@ -65,28 +65,26 @@ function App() {
     return [...new Set(allTypes)].sort()
   }
 
-  const getAvgAttack = () => {
-    if (!list || list.length === 0){
+  const getAvgAttack = useMemo(() => {
+    if (filteredPokemons.length === 0){
       return 0
     }
-    const totalAttack = list.reduce((sum, pokemon) => sum + pokemon.attack, 0)
-    return (totalAttack / list.length).toFixed(1)
-  }
+    const totalAttack = filteredPokemons.reduce((sum, pokemon) => sum + pokemon.attack, 0)
+    return (totalAttack / filteredPokemons.length).toFixed(1)
+  }, [filteredPokemons])
 
-  const getMostCommonType = () => {
-    if (!list || list.length === 0) {
+  const getMostCommonType = useMemo(() => {
+    if (filteredPokemons.length === 0) {
       return "N/A"
     }
     const typeCounts = {}
-    list.forEach(pokemon => {
+    filteredPokemons.forEach(pokemon => {
       pokemon.types.forEach(type => {
         typeCounts[type] = (typeCounts[type] || 0) + 1
       })
     })
     return Object.entries(typeCounts).sort((a, b) => b[1] - a[1])[0][0]
-  }
-
-  const filteredPokemons = filteredList()
+  }, [filteredPokemons])
 
   return (
     <div className="App">
@@ -99,17 +97,17 @@ function App() {
         </h1>
 
       <div className="summary">
-        <div className="card1">
+        <div className="card card1">
           <h3>Total Pokémon</h3>
           <p>{list?.length ?? "..."}</p>
         </div>
-        <div className="card2">
+        <div className="card card2">
           <h3>Average Attack</h3>
-          <p>{list ? getAvgAttack() : "..."}</p>
+          <p>{getAvgAttack}</p>
         </div>
-        <div className="card3">
+        <div className="card card3">
           <h3>Most Common Type</h3>
-          <p>{list ? getMostCommonType() : "..."}</p>
+          <p>{getMostCommonType}</p>
         </div>
       </div>
 

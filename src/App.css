@@ -32,33 +32,26 @@ h1 {
   margin-bottom: 24px;
 }
 
-.card1 {
-  background-color: rgb(169, 79, 79);
+.card {
   border-radius: 12px;
   padding: 16px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card1 {
+  background-color: rgb(169, 79, 79);
 }
 
 .card2 {
   background-color: rgb(209, 206, 110);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .card3 {
   background-color: rgb(82, 100, 163);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.card1 h3,
-.card2 h3,
-.card3 h3 {
+.card h3{
   margin: 0 0 8px;
   font-size: 0.85rem;
   font-family: 'Righteous', sans-serif;
@@ -66,9 +59,7 @@ h1 {
   color: #ffffff;
 }
 
-.card1 p,
-.card2 p,
-.card3 p {
+.card p {
   margin: 0;
   font-size: 1.5rem;
   font-family: 'Righteous', sans-serif;
