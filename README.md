@@ -37,7 +37,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/splacito12/Pok-Dashboard/blob/main/PokeDash.gif' width='' alt='Video Walkthrough' />
+<img src='https://github.com/splacito12/PokeDashboard/blob/main/PokeDash_6.gif' width='' alt='Video Walkthrough' />
 
 [ScreenToGif](https://www.screentogif.com/) for Windows
 ## Notes
