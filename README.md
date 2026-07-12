@@ -42,7 +42,7 @@ Here's a walkthrough of implemented user stories:
 [ScreenToGif](https://www.screentogif.com/) for Windows
 ## Notes
 
-Describe any challenges encountered while building the app.
+Honestly, the most challenging part of this project was learning how to not only create the two charts but decidiing what the sidebar should be. 
 
 ## License
 
