@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Pokemons from './Pokemons'
+import Charts from './components/Charts'
+
 import './App.css'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const fetchAllPokemons = async () => {
-      const listResponse = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+      const listResponse = await fetch("https://pokeapi.co/api/v2/pokemon?limit=250")
       const listJson = await listResponse.json()
 
       //fetch the full detail of the pokemon
@@ -127,6 +127,8 @@ function App() {
           ))}
         </select>
       </div>
+
+      {list && <Charts pokemonList={filteredPokemons} />}
 
       <ul className="pokemon-list">
         {!list ? (
